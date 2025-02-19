@@ -1,11 +1,11 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "中安联合-聚千保",
   "colors": {
     "primary": "#547af8",
     "light": "#07C983",
-    "dark": "#011025"
+    "dark": "#03142c"
   },
   "favicon": "/favicon.svg",
   "navigation": {
