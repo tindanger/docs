@@ -11,10 +11,10 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "平台",
         "groups": [
           {
-            "group": "Get Started",
+            "group": "平台介绍",
             "pages": [
               "introduction",
               "quickstart",
@@ -22,7 +22,7 @@
             ]
           },
           {
-            "group": "Essentials",
+            "group": "系统功能",
             "pages": [
               "essentials/markdown",
               "essentials/code",
@@ -35,16 +35,16 @@
         ]
       },
       {
-        "tab": "API Reference",
+        "tab": "产品",
         "groups": [
           {
-            "group": "API Documentation",
+            "group": "产品文档",
             "pages": [
               "api-reference/introduction"
             ]
           },
           {
-            "group": "Endpoint Examples",
+            "group": "更新日志",
             "pages": [
               "api-reference/endpoint/get",
               "api-reference/endpoint/create",
@@ -57,37 +57,41 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
+          "anchor": "平台首页",
+          "href": "https://www.jqbao168.com",
+          "icon": "home"
         },
         {
-          "anchor": "Community",
-          "href": "https://mintlify.com/community",
+          "anchor": "隐私申明",
+          "href": "https://www.jqbao168.com/privacy-statement.html",
           "icon": "slack"
         },
         {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "联系我们",
+          "href": "https://www.jqbao168.com/contact.html",
+          "icon": "telephone"
         }
       ]
     }
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/images/hero-light.svg",
+    "dark": "/images/hero-dark.svg"
   },
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "label": "转到平台首页",
+        "href": "https://www.jqbao168.com"
+      },
+      {
+        "label": "产品",
+        "href": "https://github.com/mintlify-ui/mintlify-ui"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
+      "label": "登录",
       "href": "https://dashboard.mintlify.com"
     }
   },
