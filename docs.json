@@ -11,7 +11,7 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "平台",
+        "tab": "用户指南",
         "groups": [
           {
             "group": "平台介绍",
@@ -35,7 +35,64 @@
         ]
       },
       {
-        "tab": "产品",
+        "tab": "产品文档",
+        "groups": [
+          {
+            "group": "产品文档",
+            "pages": [
+              "api-reference/introduction"
+            ]
+          },
+          {
+            "group": "更新日志",
+            "pages": [
+              "api-reference/endpoint/get",
+              "api-reference/endpoint/create",
+              "api-reference/endpoint/delete"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "常见问题",
+        "groups": [
+          {
+            "group": "产品文档",
+            "pages": [
+              "api-reference/introduction"
+            ]
+          },
+          {
+            "group": "更新日志",
+            "pages": [
+              "api-reference/endpoint/get",
+              "api-reference/endpoint/create",
+              "api-reference/endpoint/delete"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "更新日志",
+        "groups": [
+          {
+            "group": "产品文档",
+            "pages": [
+              "api-reference/introduction"
+            ]
+          },
+          {
+            "group": "更新日志",
+            "pages": [
+              "api-reference/endpoint/get",
+              "api-reference/endpoint/create",
+              "api-reference/endpoint/delete"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "条款与协议",
         "groups": [
           {
             "group": "产品文档",
@@ -53,26 +110,7 @@
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "平台首页",
-          "href": "https://www.jqbao168.com",
-          "icon": "slack"
-        },
-        {
-          "anchor": "隐私申明",
-          "href": "https://www.jqbao168.com/privacy-statement.html",
-          "icon": "shield"
-        },
-        {
-          "anchor": "联系我们",
-          "href": "https://www.jqbao168.com/contact.html",
-          "icon": "phone"
-        }
-      ]
-    }
+    ]
   },
   "logo": {
     "light": "/images/hero-light.svg",
