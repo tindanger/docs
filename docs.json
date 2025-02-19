@@ -14,22 +14,22 @@
         "tab": "用户指南",
         "groups": [
           {
-            "group": "平台介绍",
+            "group": "开始使用",
             "pages": [
-              "introduction",
-              "quickstart",
-              "development"
+              "UserGuide/PlatformIntroduction",
+              "UserGuide/UserRegistration",
+              "UserGuide/QuickStart"
             ]
           },
           {
             "group": "系统功能",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/settings",
-              "essentials/navigation",
-              "essentials/reusable-snippets"
+              "SystemFeatures/markdown",
+              "SystemFeatures/code",
+              "SystemFeatures/images",
+              "SystemFeatures/settings",
+              "SystemFeatures/navigation",
+              "SystemFeatures/reusable-snippets"
             ]
           }
         ]
@@ -40,7 +40,7 @@
           {
             "group": "产品文档",
             "pages": [
-              "api-reference/introduction"
+              "ProductDocumentation/introduction"
             ]
           },
           {
@@ -57,17 +57,10 @@
         "tab": "常见问题",
         "groups": [
           {
-            "group": "产品文档",
+            "group": "常见问题",
             "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "更新日志",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete"
+              "FAQ/ProductFAQ",
+              "FAQ/SystemFAQ"
             ]
           }
         ]
@@ -76,17 +69,15 @@
         "tab": "更新日志",
         "groups": [
           {
-            "group": "产品文档",
+            "group": "产品更新日志",
             "pages": [
-              "api-reference/introduction"
+              "Changelog/ProductChangelog"
             ]
           },
           {
-            "group": "更新日志",
+            "group": "系统更新日志",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete"
+              "Changelog/SystemChangelog"
             ]
           }
         ]
@@ -95,17 +86,15 @@
         "tab": "条款与协议",
         "groups": [
           {
-            "group": "产品文档",
+            "group": "平台条款与协议",
             "pages": [
-              "api-reference/introduction"
+              "Terms/PlatformTerms"
             ]
           },
           {
-            "group": "更新日志",
+            "group": "产品条款与协议",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete"
+              "Terms/ProductTerms"
             ]
           }
         ]
