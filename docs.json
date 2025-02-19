@@ -42,14 +42,6 @@
             "pages": [
               "ProductDocumentation/introduction"
             ]
-          },
-          {
-            "group": "更新日志",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete"
-            ]
           }
         ]
       },
