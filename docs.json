@@ -59,17 +59,17 @@
         {
           "anchor": "平台首页",
           "href": "https://www.jqbao168.com",
-          "icon": "home"
+          "icon": "slack"
         },
         {
           "anchor": "隐私申明",
           "href": "https://www.jqbao168.com/privacy-statement.html",
-          "icon": "slack"
+          "icon": "shield"
         },
         {
           "anchor": "联系我们",
           "href": "https://www.jqbao168.com/contact.html",
-          "icon": "telephone"
+          "icon": "phone"
         }
       ]
     }
