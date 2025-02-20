@@ -80,18 +80,17 @@
           {
             "group": "平台条款与协议",
             "pages": [
-              "Terms/个人信息的处理",
-              "Terms/个人信息保护政策",
-              "Terms/聚千保平台企业认证申请书",
-              "Terms/聚千保平台企业认证用户使用协议",
-              "Terms/Enterprise_Certification_User_Agreement_JQB"
-              
+              "Terms/JQB/个人信息的处理",
+              "Terms/JQB/个人信息保护政策",
+              "Terms/JQB/聚千保平台企业认证申请书",
+              "Terms/JQB/聚千保平台企业认证用户使用协议"
             ]
           },
           {
             "group": "产品条款与协议",
             "pages": [
-              "Terms/ProductTerms"
+              "Terms/Insurance/El/PingAn/平安雇主责任保险（B款）条款",
+              "Terms/Insurance/El/PingAn/平安产险雇主责任保险附加工伤猝死责任限额约定保险条款"
             ]
           }
         ]
