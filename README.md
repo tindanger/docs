@@ -31,3 +31,10 @@ mintlify dev
 Install our Github App to auto propagate changes from your repo to your deployment. Changes will be deployed to production automatically after pushing to the default branch. Find the link to install on your dashboard.
 
 #### Troubleshooting
+
+├── docs/
+│   └── UserGuide/          <—— 当前文件夹
+│       ├── quick-start.mdx  <—— 当前文件
+│   └── Terms/          <—— 目标文件夹
+│       ├── Enterprise_Certification_User_Agreement_JQB.mdx
+│       └── ...
