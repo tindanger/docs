@@ -16,9 +16,9 @@
           {
             "group": "开始使用",
             "pages": [
-              "UserGuide/PlatformIntroduction",
-              "UserGuide/UserRegistration",
-              "UserGuide/QuickStart"
+              "UserGuide/平台介绍",
+              "UserGuide/用户注册",
+              "UserGuide/快速上手"
             ]
           },
           {
