@@ -98,8 +98,8 @@
     ]
   },
   "logo": {
-    "light": "/images/hero-light.svg",
-    "dark": "/images/hero-dark.svg"
+    "light": "/logo/JQB_light.png",
+    "dark": "/logo/JQB_dark.png"
   },
   "navbar": {
     "links": [
