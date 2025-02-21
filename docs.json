@@ -16,13 +16,13 @@
           {
             "group": "开始使用",
             "pages": [
-              "UserGuide/PlatformIntroduction",
+              "UserGuide/index",
               "UserGuide/用户注册",
-              "UserGuide/GetStart"
+              "UserGuide/快速上手"
             ]
           },
           {
-            "group": "系统功能",
+            "group": "平台功能",
             "pages": [
               "SystemFeatures/待办事项",
               "SystemFeatures/订单管理",
