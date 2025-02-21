@@ -24,12 +24,12 @@
           {
             "group": "系统功能",
             "pages": [
-              "SystemFeatures/markdown",
-              "SystemFeatures/code",
-              "SystemFeatures/images",
-              "SystemFeatures/settings",
-              "SystemFeatures/navigation",
-              "SystemFeatures/reusable-snippets"
+              "SystemFeatures/待办事项",
+              "SystemFeatures/订单管理",
+              "SystemFeatures/团队管理",
+              "SystemFeatures/结算管理",
+              "SystemFeatures/营销分析",
+              "SystemFeatures/个人设置"
             ]
           }
         ]
