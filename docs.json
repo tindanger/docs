@@ -54,6 +54,12 @@
               "FAQ/ProductFAQ",
               "FAQ/SystemFAQ"
             ]
+          },
+          {
+            "group": "参考资料",
+            "pages": [
+              "FAQ/GB/GBT16180-2014"
+            ]
           }
         ]
       },
