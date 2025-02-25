@@ -51,7 +51,10 @@
           {
             "group": "常见问题",
             "pages": [
-              "FAQ/ProductFAQ",
+              "FAQ/ProductFAQ_1",
+              "FAQ/ProductFAQ_2",
+              "FAQ/ProductFAQ_3",
+              "FAQ/ProductFAQ_4",
               "FAQ/SystemFAQ"
             ]
           },
