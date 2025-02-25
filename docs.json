@@ -109,21 +109,21 @@
     "dark": "/logo/JQB_dark.png"
   },
   "navbar": {
-    "links": [
-      {
-        "label": "转到平台首页",
-        "href": "https://www.jqbao168.com"
-      },
-      {
-        "label": "产品",
-        "href": "https://github.com/mintlify-ui/mintlify-ui"
-      }
-    ],
     "primary": {
       "type": "button",
-      "label": "登录",
-      "href": "https://dashboard.mintlify.com"
-    }
+      "label": "平台首页",
+      "href": "https://www.jqbao168.com"
+    },
+    "links": [
+      {
+        "label": "联系我们",
+        "href": "https://www.jqbao168.com/contact.html"
+      },
+      {
+        "label": "产品预览",
+        "href": "https://www.jqbao168.com/product.html"
+      }
+    ]
   },
   "footer": {
     "socials": {
