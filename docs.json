@@ -38,7 +38,7 @@
         "tab": "产品文档",
         "groups": [
           {
-            "group": "产品清单",
+            "group": "产品列表",
             "pages": [
               "ProductDocumentation/ProductsList"
             ]
