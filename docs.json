@@ -110,23 +110,18 @@
               "/ProductDocumentation/Products/中意财险家庭财产保险",
               "/ProductDocumentation/Products/中银个人综合意外险"
             ]
-          },
-          {
-            "group": "API 文档",
-            "pages": [
-              {
-                "name": "获取产品信息",
-                "openapi": "/openapi/products.yaml",
-                "api": {
-                  "method": "GET",
-                  "path": "/products/{productCode}"
-                }
-              }
-            ]
           }
         ]
       },
-      
+      {
+        "tab": "API文档",
+        "groups": [
+          {
+            "group": "产品信息",
+            "openapi": "/openapi/products.yaml"
+          }
+        ]
+      },
       {
         "tab": "常见问题",
         "groups": [
