@@ -113,9 +113,10 @@
           },
           {
             "group": "API_test",
-            "pages": [
-              "/ProductDocumentation/Products/LB-GZ-BJ-2024"
-            ]
+           "openapi": {
+              "source": "/openapi/products.yaml",
+              "directory": "api-reference"
+            }
           }
         ]
       },

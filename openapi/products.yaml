@@ -1,0 +1,35 @@
+openapi: 3.0.0
+info:
+  title: 产品信息 API
+  version: 1.0.0
+paths:
+  /products/{productCode}:
+    get:
+      summary: 获取产品信息
+      parameters:
+        - name: productCode
+          in: path
+          required: true
+          schema:
+            type: string
+          description: 产品代码
+      responses:
+        '200':
+          description: 成功返回产品信息
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+components:
+  schemas:
+    Product:
+      type: object
+      properties:
+        basicInfo:
+          type: object
+          properties:
+            productCode:
+              type: string
+            productName:
+              type: string
+            # ... 其他属性
