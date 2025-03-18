@@ -112,14 +112,12 @@
             ]
           },
           {
-            "group": "API_test",
-           "openapi": {
-              "source": "/openapi/products.yaml",
-              "directory": "api-reference"
-            }
+            "group": "API 文档",
+            "openapi": "/openapi/products.yaml"
           }
         ]
       },
+      
       {
         "tab": "常见问题",
         "groups": [
