@@ -110,6 +110,12 @@
               "/ProductDocumentation/Products/中意财险家庭财产保险",
               "/ProductDocumentation/Products/中银个人综合意外险"
             ]
+          },
+          {
+            "group": "API_test",
+            "pages": [
+              "/ProductDocumentation/Products/LB-GZ-BJ-2024"
+            ]
           }
         ]
       },
