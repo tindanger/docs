@@ -12,24 +12,362 @@ paths:
           required: true
           schema:
             type: string
-          description: 产品代码
+          description: 产品代码，如"LB-GZ-BJ-2024"
       responses:
         '200':
           description: 成功返回产品信息
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Product'
+                type: object
+                properties:
+                  code:
+                    type: integer
+                    example: 200
+                    description: 响应状态码
+                  message:
+                    type: string
+                    example: "success"
+                    description: 响应消息
+                  data:
+                    $ref: '#/components/schemas/Product'
+                    description: 产品数据
 components:
   schemas:
     Product:
       type: object
+      description: 保险产品信息
       properties:
         basicInfo:
           type: object
           properties:
             productCode:
               type: string
+              example: "LB-GZ-BJ-2024"
             productName:
               type: string
-            # ... 其他属性
+              example: "利宝保险（北京）雇主责任险（1-5类Jqb）"
+            insuranceCompany:
+              type: string
+              example: "利宝保险有限公司"
+            productType:
+              type: string
+              example: "雇主责任险"
+            version:
+              type: string
+              example: "2024V1"
+            status:
+              type: string
+              example: "在售"
+            description:
+              type: string
+              example: "本保险产品由利宝保险有限公司承保，承保区域为中国大陆..."
+        coverage:
+          type: object
+          properties:
+            mainCoverage:
+              type: array
+              items:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  description:
+                    type: string
+                  amount:
+                    type: string
+                  standard:
+                    type: string
+                  deductible:
+                    type: string
+                  paymentRatio:
+                    type: string
+                  limit:
+                    type: object
+                    properties:
+                      deductible:
+                        type: string
+                      singleAccident:
+                        type: string
+                      accumulative:
+                        type: string
+            additionalCoverage:
+              type: array
+              items:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  amount:
+                    type: string
+                  description:
+                    type: string
+                  coefficient:
+                    type: number
+                  limit:
+                    type: object
+                    properties:
+                      deductible:
+                        type: string
+                      singleAccident:
+                        type: string
+                      accumulative:
+                        type: string
+        underwritingRules:
+          type: object
+          properties:
+            area:
+              type: object
+              properties:
+                allowed:
+                  type: string
+                excluded:
+                  type: array
+                  items:
+                    type: string
+            ageLimit:
+              type: object
+              properties:
+                min:
+                  type: integer
+                max:
+                  type: integer
+                special:
+                  type: object
+                  properties:
+                    range:
+                      type: string
+                    ratio:
+                      type: string
+            occupationClass:
+              type: object
+              properties:
+                allowed:
+                  type: string
+                minNumber:
+                  type: object
+                  properties:
+                    class1to4:
+                      type: integer
+                    class5:
+                      type: integer
+        premiumRates:
+          type: object
+          properties:
+            basic:
+              type: array
+              items:
+                type: object
+                properties:
+                  occupationClass:
+                    type: string
+                    example: "1-2类"
+                  rate:
+                    type: number
+                    example: 46
+                  unit:
+                    type: string
+                    example: "元/10万保额"
+
+        claims:
+          type: object
+          properties:
+            reportingRules:
+              type: object
+              properties:
+                timeLimit:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      delay:
+                        type: string
+                        example: "48小时以上"
+                      deductible:
+                        type: string
+                        example: "30%"
+            compensationRules:
+              type: array
+              items:
+                type: object
+                properties:
+                  type:
+                    type: string
+                  basis:
+                    type: string
+                  limit:
+                    type: string
+                  items:
+                    type: array
+                    items:
+                      type: string
+                  standard:
+                    type: object
+                    additionalProperties:
+                      type: string
+            medicalInstitutions:
+              type: object
+              properties:
+                qualified:
+                  type: string
+                excluded:
+                  type: array
+                  items:
+                    type: string
+        specialClauses:
+          type: object
+          properties:
+            workingAtHeight:
+              type: object
+              properties:
+                definition:
+                  type: string
+                safetyRequirements:
+                  type: array
+                  items:
+                    type: string
+            specialOperations:
+              type: object
+              properties:
+                certification:
+                  type: string
+                exception:
+                  type: string
+            suddenDeath:
+              type: object
+              properties:
+                coverage:
+                  type: object
+                  properties:
+                    description:
+                      type: string
+                    limit:
+                      type: string
+                exclusions:
+                  type: array
+                  items:
+                    type: string
+        documents:
+          type: object
+          properties:
+            terms:
+              type: array
+              items:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  type:
+                    type: string
+                  url:
+                    type: string
+            references:
+              type: array
+              items:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  type:
+                    type: string
+                  url:
+                    type: string
+        companyInfo:
+          type: object
+          properties:
+            solvencyRatio:
+              type: object
+              properties:
+                period:
+                  type: string
+                ratio:
+                  type: string
+            riskRating:
+              type: object
+              properties:
+                period:
+                  type: string
+                level:
+                  type: string
+        occupationManagement:
+          type: object
+          properties:
+            excludedOccupations:
+              type: array
+              items:
+                type: string
+            occupationMismatchRules:
+              type: array
+              items:
+                type: object
+                properties:
+                  actual:
+                    type: string
+                  declared:
+                    type: string
+                  deductible:
+                    type: string
+                  result:
+                    type: string
+        renewalRules:
+          type: object
+          properties:
+            lossRatio:
+              type: object
+              properties:
+                threshold:
+                  type: string
+                rules:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      condition:
+                        type: string
+                      result:
+                        type: string
+            crossSaleCheck:
+              type: object
+              properties:
+                threshold:
+                  type: string
+                action:
+                  type: string
+            area:
+              type: string
+            coverageLimit:
+              type: object
+              properties:
+                class1to4:
+                  type: string
+                class5:
+                  type: string
+                construction:
+                  type: string
+        contractManagement:
+          type: object
+          properties:
+            confirmationPeriod:
+              type: string
+            workInjuryRecognition:
+              type: object
+              properties:
+                employerTimeLimit:
+                  type: string
+                employeeTimeLimit:
+                  type: string
+                authority:
+                  type: string
+            personnelChanges:
+              type: object
+              properties:
+                addition:
+                  type: object
+                  properties:
+                    premium:
+                      type: string
+                reduction:
+                  type: object
+                  properties:
+                    rule:
+                      type: string
