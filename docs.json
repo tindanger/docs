@@ -113,7 +113,16 @@
           },
           {
             "group": "API 文档",
-            "openapi": "/openapi/products.yaml"
+            "pages": [
+              {
+                "name": "获取产品信息",
+                "openapi": "/openapi/products.yaml",
+                "api": {
+                  "method": "GET",
+                  "path": "/products/{productCode}"
+                }
+              }
+            ]
           }
         ]
       },
