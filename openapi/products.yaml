@@ -62,12 +62,11 @@ components:
   schemas:
     Product:
       type: object
+      required:
+        - basicInfo
       properties:
         basicInfo:
           type: object
-          required:
-            - productCode
-            - productName
           properties:
             productCode:
               type: string
@@ -77,3 +76,6 @@ components:
               type: string
               description: 产品名称
               example: "利宝保险（北京）雇主责任险（1-5类Jqb）"
+          required:
+            - productCode
+            - productName
