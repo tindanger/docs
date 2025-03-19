@@ -1,104 +1,158 @@
 ---
 title: "用户注册"
-# description: "用户注册"
+description: "聚千保平台用户注册指南"
 ---
 
-<Info>
-  **Prerequisite**: Please install Node.js (version 19 or higher) before proceeding. <br />
-  Please upgrade to `docs.json` before proceeding and delete the legacy `mint.json` file.
-</Info>
+## 个人用户注册
 
-Follow these steps to install and run Mintlify on your operating system:
+### 注册步骤
 
-**Step 1**: Install Mintlify:
+1. 在聚千保平台首页点击"会员注册"按钮
+2. 填写注册信息：
+   - 账号：设置您的登录账号
+   - 密码：设置您的登录密码（建议使用8-20位字母、数字组合）
+   - 确认密码：再次输入密码确认
+   - 联系人姓名：填写真实姓名
+   - 手机号码：填写常用手机号码
+   - 验证码：点击"获取验证码"按钮获取短信验证码
+   - 详细地址：填写您的联系地址
 
-<CodeGroup>
-  ```bash npm
-  npm i -g mintlify
-  ```
+3. 阅读并同意《用户协议》和《隐私政策》
+4. 点击"注册会员"按钮完成注册
 
-  ```bash yarn
-  yarn global add mintlify
-  ```
-</CodeGroup>
+### 注意事项
 
-**Step 2**: Navigate to the docs directory (where the `docs.json` file is located) and execute the following command:
+<Warning>
+- 请确保填写的信息真实有效
+- 手机号码将作为重要联系方式和找回密码的验证方式
+- 请妥善保管您的账号和密码
+</Warning>
 
-```bash
-mintlify dev
-```
-
-A local preview of your documentation will be available at `http://localhost:3000`.
-
-## 个人用户
-
-By default, Mintlify uses port 3000. You can customize the port Mintlify runs on by using the `--port` flag. To run Mintlify on port 3333, for instance, use this command:
-
-```bash
-mintlify dev --port 3333
-```
-
-If you attempt to run Mintlify on a port that's already in use, it will use the next available port:
-
-```md
-Port 3000 is already in use. Trying 3001 instead.
-```
-
-## 企业用户
-
-Please note that each CLI release is associated with a specific version of Mintlify. If your local website doesn't align with the production version, please update the CLI:
-
-<CodeGroup>
-  ```bash npm
-  npm i -g mintlify@latest
-  ```
-
-  ```bash yarn
-  yarn global upgrade mintlify
-  ```
-</CodeGroup>
-
-## Validating Links
-
-The CLI can assist with validating reference links made in your documentation. To identify any broken links, use the following command:
-
-```bash
-mintlify broken-links
-```
-
-## Deployment
-
-<Tip>
-  Unlimited editors available under the [Pro
-  Plan](https://mintlify.com/pricing) and above.
-</Tip>
-
-If the deployment is successful, you should see the following:
-
-<Frame>
-  <img src="/images/checks-passed.png" style={{ borderRadius: '0.5rem' }} />
-</Frame>
-
-## Code Formatting
-
-We suggest using extensions on your IDE to recognize and format MDX. If you're a VSCode user, consider the [MDX VSCode extension](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx) for syntax highlighting, and [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) for code formatting.
-
-## Troubleshooting
+### 常见问题
 
 <AccordionGroup>
-  <Accordion title="Error: Could not load the &#x22;sharp&#x22; module using the darwin-arm64 runtime">
-    This may be due to an outdated version of node. Try the following:
-
-    1. Remove the currently-installed version of mintlify: `npm remove -g mintlify`
-
-    2. Upgrade to Node v19 or higher.
-
-    3. Reinstall mintlify: `npm install -g mintlify`
+  <Accordion title="手机验证码收不到怎么办？">
+    1. 检查手机是否开启短信拦截
+    2. 检查填写的手机号是否正确
+    3. 等待1-2分钟后重新获取
+    4. 如果仍然收不到，请联系客服处理
   </Accordion>
 
-  <Accordion title="Issue: Encountering an unknown error">
-    Solution: Go to the root of your device and delete the \~/.mintlify folder. Afterwards, run `mintlify dev` again.
+  <Accordion title="注册时提示账号已存在怎么办？">
+    1. 您可能已经注册过账号，请尝试直接登录
+    2. 如果忘记密码，可以通过"忘记密码"功能重置
+    3. 或者更换一个新的账号名称重新注册
   </Accordion>
 </AccordionGroup>
 
-Curious about what changed in the CLI version? [Check out the CLI changelog.](https://www.npmjs.com/package/mintlify?activeTab=versions)
+## 企业用户
+
+## 企业用户注册
+
+### 企业账号说明
+
+<Note>
+企业账号是一个独立的账号体系，专门用于企业管理自身的保险业务。企业通过统一社会信用代码作为唯一标识。
+</Note>
+
+#### 账号特点
+
+<CardGroup>
+  <Card title="独立性" icon="building">
+    - 企业账号完全独立运作
+    - 不从属于任何SABC或其他管理账户
+    - 专门管理以该企业为投保人的所有订单
+  </Card>
+  
+  <Card title="开通条件" icon="file-check">
+    - 完成企业注册信息填写
+    - 提交加盖公章的认证材料
+    - 平台审核通过后开通
+  </Card>
+</CardGroup>
+
+#### 功能权限
+
+<Tabs>
+  <Tab title="可用功能">
+    - 待办事项查看
+    - 产品中心浏览
+    - 订单管理
+    - 站内信息
+    - 个人设置
+  </Tab>
+  
+  <Tab title="操作权限">
+    - 自主创建投保订单
+    - 查看企业所有既往已完成订单
+    - 对保期内订单进行批改操作
+  </Tab>
+  
+  <Tab title="使用限制">
+    - 产品中心不显示积分比例
+    - 订单管理不显示积分信息
+    - 不能操作其他会员账号创建的未完成订单
+  </Tab>
+</Tabs>
+
+### 注册条件
+
+<Info>
+根据《金规（2024）9号·关于加强和改进互联网财产保险业务监管事项通知》及相关监管要求，企业用户需要完成认证才能使用平台服务。
+</Info>
+
+### 注册步骤
+
+1. **基本信息注册**
+   - 单位名称：填写营业执照上的企业全称
+   - 证件号码：填写统一社会信用代码
+   - 企业账号管理员：填写负责人姓名
+   - 身份证号：填写管理员身份证号
+   - 管理员手机：填写管理员联系电话
+   - 电子邮箱：填写企业联系邮箱
+
+2. **认证材料提交**
+   - 下载并填写《聚千保平台企业认证申请书》
+   - 盖章后将申请书扫描上传
+   - 上传企业营业执照副本
+   - 上传企业管理员身份证正反面
+
+3. **阅读并同意相关协议**
+   - 《聚千保平台企业认证用户使用协议》
+   - 《个人信息保护政策》
+
+### 注意事项
+
+<Warning>
+- 企业账号开通后，登录信息将发送至注册时提交的电子邮箱
+- 请确保账号管理员为贵单位员工，管理员账号的操作行为均视为贵单位的授权行为
+- 企业认证信息必须真实、准确，如有虚假将承担相应法律责任
+</Warning>
+
+### 常见问题
+
+<AccordionGroup>
+  <Accordion title="如何获取企业认证申请书？">
+    1. 访问聚千保官网：https://www.jqbao168.com/enterprise.html
+    2. 下载企业认证申请书模板
+    3. 按要求填写并加盖公章
+  </Accordion>
+
+  <Accordion title="企业认证需要多长时间？">
+    - 正常情况下1-3个工作日完成审核
+    - 如有问题可拨打客服电话：0510-85126866
+    - 或通过公众号"聚千保"联系我们
+  </Accordion>
+
+  <Accordion title="企业认证有什么用途？">
+    完成认证后，企业可以：
+    - 进行在线投保
+    - 保单管理及批改保全
+    - 查看团队保险数据
+    - 管理企业成员账号
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+如需了解更多信息，请查看[企业认证用户使用协议](/Terms/JQB/聚千保平台企业认证用户使用协议)
+</Note>

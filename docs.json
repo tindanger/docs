@@ -119,8 +119,8 @@
           {
             "group": "产品信息",
             "openapi": {
-              "source": "/openapi/products.yaml",
-              "directory": "api-reference/products"  
+              "source": "/api/products.yaml",
+              "directory": "api/schemas"  
             }
           }
         ]

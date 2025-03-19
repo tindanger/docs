@@ -1,0 +1,107 @@
+openapi: 3.0.0
+info:
+  title: 产品信息 API
+  version: 1.0.0
+  description: 聚千保保险产品信息查询服务
+servers:
+  - url: https://jqb.mintlify.app/api
+    description: 聚千保文档服务器
+paths:
+  /products/{productCode}:
+    get:
+      tags:
+        - 产品
+      summary: 获取产品信息
+      description: 根据产品代码获取保险产品的详细信息
+      operationId: getProductByCode
+      parameters:
+        - name: productCode
+          in: path
+          required: true
+          schema:
+            type: string
+          description: 产品代码
+          example: "LB-GZ-BJ-2024"
+      responses:
+        '200':
+          description: 成功返回产品信息
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+        '404':
+          description: 产品不存在
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    ApiResponse:
+      type: object
+      required:
+        - code
+        - message
+        - data
+      properties:
+        code:
+          type: integer
+          format: int32
+          example: 200
+          description: 响应状态码
+        message:
+          type: string
+          example: "success"
+          description: 响应消息
+        data:
+          $ref: '#/components/schemas/Product'
+    ErrorResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 404
+        message:
+          type: string
+          example: "产品不存在"
+    Product:
+      type: object
+      required:
+        - basicInfo
+      properties:
+        basicInfo:
+          $ref: '#/components/schemas/ProductBasicInfo'
+    ProductBasicInfo:
+      type: object
+      required:
+        - productCode
+        - productName
+      properties:
+        productCode:
+          type: string
+          description: 产品代码
+          example: "LB-GZ-BJ-2024"
+        productName:
+          type: string
+          description: 产品名称
+          example: "利宝保险（北京）雇主责任险（1-5类Jqb）"
+        insuranceCompany:
+          type: string
+          description: 承保公司
+          example: "利宝保险有限公司"
+        productType:
+          type: string
+          description: 产品类型
+          example: "雇主责任险"
+        version:
+          type: string
+          description: 产品版本
+          example: "2024V1"
+        status:
+          type: string
+          description: 产品状态
+          example: "在售"
+        description:
+          type: string
+          description: 产品描述
+          example: "本保险产品由利宝保险有限公司承保，承保区域为中国大陆（不含港澳台及重庆地区）。"
