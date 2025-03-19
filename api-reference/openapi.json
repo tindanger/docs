@@ -5,7 +5,7 @@
     "version": "1.0.0"
   },
   "paths": {
-    "/products": {
+    "/api/products": {
       "get": {
         "summary": "获取产品列表",
         "parameters": [
@@ -50,7 +50,28 @@
         }
       }
     },
-    "/policies": {
+    "/api/products/{productCode}": {
+      "get": {
+        "summary": "获取产品详情",
+        "parameters": [
+          {
+            "name": "productCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "产品代码"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功返回产品信息"
+          }
+        }
+      }
+    },
+    "/api/policies": {
       "post": {
         "summary": "创建保单",
         "requestBody": {
