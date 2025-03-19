@@ -120,7 +120,7 @@
             "group": "产品信息",
             "openapi": {
               "source": "/openapi/products.yaml",
-              "directory": "api-reference"
+              "directory": "api-reference/products"  
             }
           }
         ]
