@@ -118,7 +118,10 @@
         "groups": [
           {
             "group": "产品信息",
-            "openapi": "/openapi/products.yaml"
+            "openapi": {
+              "source": "/openapi/products.yaml",
+              "directory": "api-reference"
+            }
           }
         ]
       },

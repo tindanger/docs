@@ -4,10 +4,10 @@ info:
   version: 1.0.0
   description: 聚千保保险产品信息查询服务
 servers:
-  - url: https://jqb.mintlify.app/
+  - url: https://api.jqbao168.com/v1
     description: 生产环境
 paths:
-  /products/{productCode}:
+  /api/products/{productCode}:    # 修改 API 路径
     get:
       tags:
         - 产品
