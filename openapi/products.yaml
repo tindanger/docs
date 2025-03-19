@@ -4,10 +4,10 @@ info:
   version: 1.0.0
   description: 聚千保保险产品信息查询服务
 servers:
-  - url: https://api.example.com
-    description: 示例服务器
+  - url: https://jqb.mintlify.app
+    description: 聚千保文档服务器
 paths:
-  /products/{productCode}:
+  /api/products/{productCode}:
     get:
       tags:
         - 产品
