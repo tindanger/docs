@@ -3,54 +3,25 @@ info:
   title: 产品信息 API
   version: 1.0.0
   description: 聚千保保险产品信息查询服务
-servers:
-  - url: https://jqb.mintlify.app
-    description: 文档预览环境
 paths:
-  /api/products/{productCode}:
+  /products/{productCode}:
     get:
-      tags:
-        - 产品
       summary: 获取产品信息
-      description: 根据产品代码获取保险产品的详细信息
-      operationId: getProductByCode
       parameters:
         - name: productCode
           in: path
           required: true
           schema:
             type: string
-          description: 产品代码
           example: "LB-GZ-BJ-2024"
       responses:
         '200':
-          description: 成功返回产品信息
+          description: 成功
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ProductResponse'
-components:
-  schemas:
-    ProductResponse:
-      type: object
-      properties:
-        code:
-          type: integer
-          example: 200
-        message:
-          type: string
-          example: "success"
-        data:
-          $ref: '#/components/schemas/Product'
-    Product:
-      type: object
-      properties:
-        basicInfo:
-          type: object
-          properties:
-            productCode:
-              type: string
-              example: "LB-GZ-BJ-2024"
-            productName:
-              type: string
-              example: "利宝保险（北京）雇主责任险（1-5类Jqb）"
+                type: object
+                properties:
+                  productName:
+                    type: string
+                    example: "利宝保险（北京）雇主责任险"
