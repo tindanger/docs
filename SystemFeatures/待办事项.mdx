@@ -1,88 +1,94 @@
 ---
 title: '待办事项'
-description: 'Text, title, and styling in standard markdown'
-icon: 'text-size'
+description: '查看和处理您的待办工作'
+icon: 'list-check'
 ---
 
-## Titles
+## 功能介绍
 
-Best used for section headers.
+待办事项模块帮助您及时跟踪和处理需要关注的工作事项，包括：
+- 未完成订单
+- 未完成批改订单
+- 欠缴资料补录
+- 欠缴资料邮寄
 
-```md
-## Titles
-```
+## 待办类型
 
-### Subtitles
+<CardGroup>
+  <Card title="未完成订单" icon="file-circle-exclamation">
+    尚未完成的投保订单，需要继续完成投保流程
+  </Card>
+  <Card title="未完成批改" icon="pen-to-square">
+    正在处理中的批改申请，需要继续完成批改流程
+  </Card>
+  <Card title="欠缴资料补录" icon="file-arrow-up">
+    需要补充上传的电子版资料，如投保单签章等
+  </Card>
+  <Card title="欠缴资料邮寄" icon="envelope">
+    需要邮寄的纸质资料，如投保单原件等
+  </Card>
+</CardGroup>
 
-Best use to subsection headers.
+## 状态说明
 
-```md
-### Subtitles
-```
+| 状态标识 | 说明 | 处理要求 |
+|---------|------|----------|
+| 订 | 未完成订单 | 继续完成订单投保流程 |
+| 批 | 未完成批改 | 继续完成批改申请流程 |
+| 补 | 欠缴资料待补录 | 及时上传所需电子版资料 |
+| 邮 | 欠缴资料待邮寄 | 及时邮寄所需纸质资料 |
 
-<Tip>
+## 操作指南
 
-Each **title** and **subtitle** creates an anchor and also shows up on the table of contents on the right.
+### 查看待办
 
-</Tip>
+1. 登录系统后，点击顶部导航栏的"待办事项"
+2. 系统显示所有待处理的工作项
+3. 可以通过状态标识快速识别待办类型
+4. 进度条显示处理进度
 
-## Text Formatting
+### 处理流程
 
-We support most markdown formatting. Simply add `**`, `_`, or `~` around text to format it.
+<Tabs>
+  <Tab title="未完成订单">
+    1. 点击未完成的订单
+    2. 继续填写或修改订单信息
+    3. 完成剩余投保流程
+  </Tab>
+  
+  <Tab title="未完成批改">
+    1. 点击未完成的批改申请
+    2. 继续填写或修改批改信息
+    3. 完成剩余批改流程
+  </Tab>
 
-| Style         | How to write it   | Result          |
-| ------------- | ----------------- | --------------- |
-| Bold          | `**bold**`        | **bold**        |
-| Italic        | `_italic_`        | _italic_        |
-| Strikethrough | `~strikethrough~` | ~strikethrough~ |
+  <Tab title="资料补录">
+    1. 查看需要补充的资料清单
+    2. 准备电子版资料（如盖章后的扫描件）
+    3. 上传资料并提交
+  </Tab>
 
-You can combine these. For example, write `**_bold and italic_**` to get **_bold and italic_** text.
+  <Tab title="资料邮寄">
+    1. 查看需要邮寄的资料清单
+    2. 准备纸质资料（如盖章后的原件）
+    3. 按要求邮寄并填写快递信息
+  </Tab>
+</Tabs>
 
-You need to use HTML to write superscript and subscript text. That is, add `<sup>` or `<sub>` around your text.
+<Warning>
+- 请确保上传的电子版资料清晰完整
+- 纸质资料邮寄时请注明订单号
+</Warning>
 
-| Text Size   | How to write it          | Result                 |
-| ----------- | ------------------------ | ---------------------- |
-| Superscript | `<sup>superscript</sup>` | <sup>superscript</sup> |
-| Subscript   | `<sub>subscript</sub>`   | <sub>subscript</sub>   |
+## 常见问题
 
-## Linking to Pages
-
-You can add a link by wrapping text in `[]()`. You would write `[link to google](https://google.com)` to [link to google](https://google.com).
-
-Links to pages in your docs need to be root-relative. Basically, you should include the entire folder path. For example, `[link to text](/writing-content/text)` links to the page "Text" in our components section.
-
-Relative links like `[link to text](../text)` will open slower because we cannot optimize them as easily.
-
-## Blockquotes
-
-### Singleline
-
-To create a blockquote, add a `>` in front of a paragraph.
-
-> Dorothy followed her through many of the beautiful rooms in her castle.
-
-```md
-> Dorothy followed her through many of the beautiful rooms in her castle.
-```
-
-### Multiline
-
-> Dorothy followed her through many of the beautiful rooms in her castle.
->
-> The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
-
-```md
-> Dorothy followed her through many of the beautiful rooms in her castle.
->
-> The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
-```
-
-### LaTeX
-
-Mintlify supports [LaTeX](https://www.latex-project.org) through the Latex component.
-
-<Latex>8 x (vk x H1 - H2) = (0,1)</Latex>
-
-```md
-<Latex>8 x (vk x H1 - H2) = (0,1)</Latex>
-```
+<AccordionGroup>
+  <Accordion title="如何继续未完成的订单？">
+    点击对应的未完成订单，系统会自动定位到上次操作的步骤，您可以继续完成后续流程。
+  </Accordion>
+  
+  <Accordion title="资料补录和邮寄有什么区别？">
+    - 资料补录：上传电子版资料，如投保单签章扫描件
+    - 资料邮寄：邮寄纸质原件，如需要原件存档的单证
+  </Accordion>
+</AccordionGroup>

@@ -1,110 +1,182 @@
 ---
-title: 营销分析
-description: Reusable, custom snippets to keep content in sync
-icon: 'recycle'
+title: '营销分析'
+description: '业务数据分析与可视化'
+icon: 'chart-mixed'
 ---
 
-import SnippetIntro from '/snippets/snippet-intro.mdx';
+## 数据概览
 
-<SnippetIntro />
+### 核心指标展示
+系统首页实时展示四个核心运营指标：
 
-## Creating a custom snippet
+<CardGroup>
+  <Card title="本月总保费" icon="money-bill-trend-up">
+    - 当月累计保费总额
+    - 显示较上月的变化趋势（上升/下降）
+    - 展示月度目标完成情况
+  </Card>
+  
+  <Card title="本月总单数" icon="file-chart-column">
+    - 当月累计投保单数
+    - 柱状图展示每日投保量分布
+    - 显示日均投保量数据
+  </Card>
 
-**Pre-condition**: You must create your snippet file in the `snippets` directory.
+  <Card title="本月访客" icon="users-viewfinder">
+    - 当月平台访问总人数
+    - 曲线图展示每日访客波动
+    - 显示高峰期访问情况
+  </Card>
+
+  <Card title="本月活跃用户" icon="user-check">
+    - 当月实际使用平台的用户数
+    - 曲线图展示用户活跃度变化
+    - 反映平台实际使用情况
+  </Card>
+</CardGroup>
 
 <Note>
-  Any page in the `snippets` directory will be treated as a snippet and will not
-  be rendered into a standalone page. If you want to create a standalone page
-  from the snippet, import the snippet into another file and call it as a
-  component.
+所有指标数据支持实时更新，并可查看历史数据对比。
 </Note>
 
-### Default export
+## 趋势分析
 
-1. Add content to your snippet file that you want to re-use across multiple
-   locations. Optionally, you can add variables that can be filled in via props
-   when you import the snippet.
+### 时间范围选择
+- 支持查看近一年数据
+- 可选择具体年份（2021-2025）
+- 支持按月度查看明细
 
-```mdx snippets/my-snippet.mdx
-Hello world! This is my content I want to reuse across pages. My keyword of the
-day is {word}.
-```
+### 业务趋势图表
+系统提供四种数据视图，每种视图都支持切换以下维度：
+- 订单数据
+- 批改订单数据
+- 合计数据
 
-<Warning>
-  The content that you want to reuse must be inside the `snippets` directory in
-  order for the import to work.
-</Warning>
+<Tabs>
+  <Tab title="销售额趋势">
+    - 柱状图展示月度销售额
+    - 折线图显示变化趋势
+    - 支持金额/占比分析
+  </Tab>
+  
+  <Tab title="订单量趋势">
+    - 柱状图展示月度订单量
+    - 折线图追踪变化趋势
+    - 显示月度同比数据
+  </Tab>
 
-2. Import the snippet into your destination file.
+  <Tab title="积分趋势">
+    - 柱状图展示月度积分情况
+    - 反映业务质量情况
+    - 支持积分构成分析
+  </Tab>
 
-```mdx destination-file.mdx
----
-title: My title
-description: My Description
----
+  <Tab title="待续保订单">
+    - 柱状图展示待续保订单数量
+    - 反映续保业务机会
+    - 支持到期时间分析
+  </Tab>
 
-import MySnippet from '/snippets/path/to/my-snippet.mdx';
+  <Tab title="团队成交额">
+    - 展示团队成员成交额与业绩排名
+  </Tab>
+</Tabs>
 
-## Header
 
-Lorem impsum dolor sit amet.
 
-<MySnippet word="bananas" />
-```
+<Note>
+所有趋势图表均支持数据钻取，点击具体月份可查看日度明细数据。
+</Note>
 
-### Reusable variables
+## 产品分析
 
-1. Export a variable from your snippet file:
+### 报价分析
+<CardGroup>
+  <Card title="今日报价总量" icon="calculator">
+    - 实时统计当日报价次数
+    - 曲线图展示报价趋势
+    - 环比变化趋势
+  </Card>
+</CardGroup>
 
-```mdx snippets/path/to/custom-variables.mdx
-export const myName = 'my name';
+### 产品报价热度
+<Tabs>
+  <Tab title="热度排行">
+    展示当月报价频次最高的产品：
+    - 产品名称
+    - 报价次数
+  </Tab>
 
-export const myObject = { fruit: 'strawberries' };
-```
+</Tabs>
 
-2. Import the snippet from your destination file and use the variable:
+## 产品销售分析
 
-```mdx destination-file.mdx
----
-title: My title
-description: My Description
----
+### 产品类别占比
+<CardGroup>
+  <Card title="销售额分布" icon="chart-pie">
+    环形图展示各险种销售额与分布：
+    - 货运险
+    - 建工团意险
+    - 建工一切险
+    - 建工安责险
+    - 建工雇责险
+    - 小微企业综合险
+    - 团体意外险
+    - 安全生产责任险
+    - 雇主责任保险
+    - 个人意外伤害保险
+  </Card>
+</CardGroup>
 
-import { myName, myObject } from '/snippets/path/to/custom-variables.mdx';
+### 数据视图
+<Tabs>
+  <Tab title="全部">
+    - 显示所有险种销售数据
+    - 展示各险种保费金额与占比
+    - 支持按金额/占比排序
+  </Tab>
+  
+  <Tab title="团队子级">
+    - 筛选显示团队子级产品数据
+  </Tab>
 
-Hello, my name is {myName} and I like {myObject.fruit}.
-```
+</Tabs>
 
-### Reusable components
+<Note>
+环形图中心显示累计销售总额，支持数据下钻分析。
+</Note>
 
-1. Inside your snippet file, create a component that takes in props by exporting
-   your component in the form of an arrow function.
+## 赔付分析
 
-```mdx snippets/custom-component.mdx
-export const MyComponent = ({ title }) => (
-  <div>
-    <h1>{title}</h1>
-    <p>... snippet content ...</p>
-  </div>
-);
-```
+### 赔付率统计
+<CardGroup>
+  <Card title="赔付率概览" icon="chart-line">
+    - 按保险公司展示各产品赔付情况
+    - 支持按子账号筛选查看
+    - 可按产品类型分类统计
+  </Card>
+</CardGroup>
 
-<Warning>
-  MDX does not compile inside the body of an arrow function. Stick to HTML
-  syntax when you can or use a default export if you need to use MDX.
-</Warning>
+### 数据明细
+<Tabs>
+  <Tab title="全部">
+    展示所有产品的赔付数据：
+    - 保险公司名称（含地区）
+    - 产品名称
+    - 赔付率数据
+    - 环比变化趋势
+  </Tab>
+</Tabs>
 
-2. Import the snippet into your destination file and pass in the props
+### 趋势追踪
+- 折线图展示赔付率变化趋势
+- 蓝线表示实际赔付金额
+- 红线表示预期赔付金额
+- 支持按年度/季度/月度查看
 
-```mdx destination-file.mdx
----
-title: My title
-description: My Description
----
-
-import { MyComponent } from '/snippets/custom-component.mdx';
-
-Lorem ipsum dolor sit amet.
-
-<MyComponent title={'Custom title'} />
-```
+<Note>
+赔付率计算方法：赔付率 = 实际赔付金额 / 已赚保费 × 100%
+- 实际赔付金额：当期实际支付的赔款总额
+- 已赚保费：当期应收保费扣除未到期责任准备金后的金额
+较高的赔付率可能表明产品定价或风险控制需要优化。
+</Note>

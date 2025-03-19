@@ -1,37 +1,86 @@
 ---
 title: '订单管理'
-description: 'Display inline code and code blocks'
-icon: 'code'
+description: '管理您的保险订单'
+icon: 'file-lines'
 ---
 
-## Basic
+## 功能概述
 
-### Inline Code
+订单管理模块提供全面的订单管理功能，包括订单查询、报价管理、批改处理和续保管理。
 
-To denote a `word` or `phrase` as code, enclose it in backticks (`).
+## 订单列表
 
-```
-To denote a `word` or `phrase` as code, enclose it in backticks (`).
-```
+订单列表展示所有保单订单，包括：
+- 已完成订单
+- 未完成订单
+- 被拒保订单
+- 已撤销订单
 
-### Code Block
+<Note>
+未完成订单的后续处理请参考[工作台](/SystemFeatures/工作台)。
+</Note>
 
-Use [fenced code blocks](https://www.markdownguide.org/extended-syntax/#fenced-code-blocks) by enclosing code in three backticks and follow the leading ticks with the programming language of your snippet to get syntax highlighting. Optionally, you can also write the name of your code after the programming language.
+## 报价管理
 
-```java HelloWorld.java
-class HelloWorld {
-    public static void main(String[] args) {
-        System.out.println("Hello, World!");
-    }
-}
-```
+<Tabs>
+  <Tab title="平安在线询价">
+    支持实时获取平安产品的保费报价，详细说明请参考 [平安在线询价说明](/FAQ/GAC_PA)
+  </Tab>
+  
+  <Tab title="本地制式报价">
+    可用于：
+    - 预览初步报价
+    - 调整方案进行保费测算
+    - 一键转投保
+  </Tab>
+</Tabs>
 
-````md
-```java HelloWorld.java
-class HelloWorld {
-    public static void main(String[] args) {
-        System.out.println("Hello, World!");
-    }
-}
-```
-````
+### 报价书特点
+
+<CardGroup>
+  <Card title="快速报价" icon="bolt">
+    无需完整投保信息即可创建报价预览
+  </Card>
+  <Card title="方案调整" icon="sliders">
+    支持调整投保人数、保额等要素
+  </Card>
+  <Card title="一键转投保" icon="arrow-right-to-bracket">
+    报价确认后可直接转为投保单
+  </Card>
+</CardGroup>
+
+## 批改管理
+
+批改订单列表显示所有批改申请，功能特点：
+- 查看所有批改订单
+- 跟踪批改处理进度
+- 支持转到工作台处理
+
+<Warning>
+未完成的批改订单请在工作台中及时处理。
+</Warning>
+
+## 续保管理
+
+<Note>
+续保窗口期：保单到期日前后30天
+</Note>
+
+### 续保状态说明
+
+| 状态 | 说明 | 是否可续保 |
+|------|------|------------|
+| 通过续保 | 符合续保条件 | ✅ 支持续保 |
+| 有条件续保 | 需满足特定条件 | ✅ 满足条件后可续保 |
+| 拒绝续保 | 不符合续保条件 | ❌ 无法续保 |
+
+### 续保操作流程
+
+1. 在产品列表中选择带有【续保入口】的产品
+2. 点击续保入口
+3. 输入历史保单号
+4. 按流程完成续保
+
+<Tip>
+只有状态为"通过续保"或"有条件续保"的订单才支持续保操作。
+</Tip>

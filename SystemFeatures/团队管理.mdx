@@ -1,59 +1,88 @@
 ---
 title: '团队管理'
-description: 'Add image, video, and other HTML elements'
-icon: 'image'
+description: '管理您的团队成员和权限'
+icon: 'users'
 ---
 
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="https://mintlify-assets.b-cdn.net/bigbend.jpg"
-/>
+## 团队成员管理
 
-## Image
+### 成员列表
+系统展示团队所有成员信息，包括：
+- 账号：成员的登录账号
+- 密码：登录密码
+- 姓名：成员真实姓名
+- 手机号码：联系电话
+- 身份证号：成员身份证号码
+- 省市区：所在地区
+- 详细地址：具体街道地址
+- 工作单位：所属单位名称
+- 工作年限：保险行业从业年限
+- 会员等级：显示为"普"等级标识
+- 产品线：可销售的产品范围
+- 地域限制：业务开展区域限制
+- 积分：累计获得的积分
+- 状态：账号状态
+- 下级总数：下级成员数量
+- 操作员总数：可开设操作员的数量
+- 签署协议：签署的相关协议文件
 
-### Using Markdown
+### 操作功能
+<CardGroup>
+  <Card title="新增成员" icon="user-plus">
+    点击"新增"按钮，可以：
+    - 添加新团队成员
+  </Card>
+  
+  <Card title="成员管理" icon="users-gear">
+    对现有成员可以：
+    - 查看详细资料
+    - 修改基本信息
+    - 调整产品权限
+  </Card>
+</CardGroup>
 
-The [markdown syntax](https://www.markdownguide.org/basic-syntax/#images) lets you add images using the following code
+## 成员资料管理
 
-```md
-![title](/path/image.jpg)
-```
+### 基本信息
+需要填写的必要信息：
+- 会员账号：由团队上级成员开设
+- 姓名：真实姓名
+- 联系电话：常用手机号
+- 产品线：可见产品范围
+- 地域限制：业务开展区域
 
-Note that the image file size must be less than 5MB. Otherwise, we recommend hosting on a service like [Cloudinary](https://cloudinary.com/) or [S3](https://aws.amazon.com/s3/). You can then use that URL and embed.
+## 权限管理
 
-### Using Embeds
+### 产品权限
+- 可设置成员可见的产品范围
+- 支持按产品类型批量授权
+- 可限制特定产品的操作权限
 
-To get more customizability with images, you can also use [embeds](/writing-content/embed) to add images
+### 操作权限
+可配置的权限项：
+- 投保权限
+- 批改权限
+- 查看权限
+- 导出权限
 
-```html
-<img height="200" src="/path/image.jpg" />
-```
+<Warning>
+请谨慎设置成员权限，确保符合合规要求。
+</Warning>
 
-## Embeds and HTML elements
+## 团队数据
 
-<iframe
-  width="560"
-  height="315"
-  src="https://www.youtube.com/embed/4KzFe50RQkQ"
-  title="YouTube video player"
-  frameBorder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowFullScreen
-  style={{ width: '100%', borderRadius: '0.5rem' }}
-></iframe>
+### 数据统计
+- 团队规模
+- 业务总量
+- 人均产能
+- 业绩排名
 
-<br />
+### 报表导出
+支持导出：
+- 成员清单
+- 业绩报表
+- 资质统计
 
-<Tip>
-
-Mintlify supports [HTML tags in Markdown](https://www.markdownguide.org/basic-syntax/#html). This is helpful if you prefer HTML tags to Markdown syntax, and lets you create documentation with infinite flexibility.
-
-</Tip>
-
-### iFrames
-
-Loads another HTML page within the document. Most commonly used for embedding videos.
-
-```html
-<iframe src="https://www.youtube.com/embed/4KzFe50RQkQ"> </iframe>
-```
+<Note>
+所有导出的数据仅供内部管理使用，请注意信息安全。
+</Note>

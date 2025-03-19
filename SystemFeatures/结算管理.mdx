@@ -1,87 +1,151 @@
 ---
 title: '结算管理'
-description: 'The navigation field in docs.json defines the pages that go in the navigation menu'
-icon: 'map'
+description: '管理您的积分结算和兑换'
+icon: 'calculator'
 ---
 
-The navigation menu is the list of links on every website.
+## 积分概览
 
-You will likely update `docs.json` every time you add a new page. Pages do not show up automatically.
+### 数据统计
+系统提供三个维度的积分数据统计：
+- 上月销售额及积分
+- 本月销售额及积分
+- 累计销售额及积分
 
-## Navigation syntax
+<Note>
+所有数据都通过环形图展示，直观显示各项占比。
+</Note>
 
-Our navigation syntax is recursive which means you can make nested navigation groups. You don't need to include `.mdx` in page names.
+## 积分申请
 
-<CodeGroup>
-
-```json Regular Navigation
-"navigation": {
-  "tabs": [
-    {
-      "tab": "Docs",
-      "groups": [
-        {
-          "group": "Getting Started",
-          "pages": ["quickstart"]
-        }
-      ]
-    }
-  ]
-}
-```
-
-```json Nested Navigation
-"navigation": {
-  "tabs": [
-    {
-      "tab": "Docs",
-      "groups": [
-        {
-          "group": "Getting Started",
-          "pages": [
-            "quickstart",
-            {
-              "group": "Nested Reference Pages",
-              "pages": ["nested-reference-page"]
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
-```
-
-</CodeGroup>
-
-## Folders
-
-Simply put your MDX files in folders and update the paths in `docs.json`.
-
-For example, to have a page at `https://yoursite.com/your-folder/your-page` you would make a folder called `your-folder` containing an MDX file called `your-page.mdx`.
+### 申请流程
+1. 选择申请时段（如：2025-02-01至2025-02-28）
+2. 选择兑换类型：
+   - 现金兑换（不提供发票）
+   - 增值税普通发票
+   - 增值税专用发票（税率1%）
+   - 增值税专用发票（税率3%）
+   - 增值税专用发票（税率6%）
+3. 填写收款信息：
+   - 收款人户名
+   - 开户行
+   - 银行账号
 
 <Warning>
-
-You cannot use `api` for the name of a folder unless you nest it inside another folder. Mintlify uses Next.js which reserves the top-level `api` folder for internal server calls. A folder name such as `api-reference` would be accepted.
-
+请确保填写的银行账户信息准确无误，否则可能导致打款失败。
 </Warning>
 
-```json Navigation With Folder
-"navigation": {
-  "tabs": [
-    {
-      "tab": "Docs",
-      "groups": [
-        {
-          "group": "Group Name",
-          "pages": ["your-folder/your-page"]
-        }
-      ]
-    }
-  ]
-}
-```
+### 兑换规则
 
-## Hidden Pages
+<AccordionGroup>
+  <Accordion title="基本规则">
+    - 每月1号统计上月积分
+    - 积分兑换需要在指定时间内完成申请
+    - 每个自然月仅可申请一次兑换
+  </Accordion>
+  
+  <Accordion title="发票说明">
+    - 选择开具发票时需要提供准确的开票信息
+    - 不同税率的发票类型适用于不同的企业类型
+    - 发票一经开具不可更改
+  </Accordion>
+</AccordionGroup>
 
-MDX files not included in `docs.json` will not show up in the sidebar but are accessible through the search bar and by linking directly to them.
+## 申请记录
+
+### 记录查询
+- 可选择查询时间范围
+- 支持按申请编号、申请时段等条件筛选
+- 显示所有积分兑换申请的处理状态和进度
+
+### 记录字段说明
+| 字段 | 说明 |
+|------|------|
+| 申请编号 | 系统自动生成的唯一编号 |
+| 申请时段 | 积分兑换申请的统计月份 |
+| 兑换类型 | 现金兑换或发票类型 |
+| 积分 | 本次申请兑换的积分数量 |
+| 订单总额 | 对应积分的订单金额 |
+| 申请时间 | 提交兑换申请的时间 |
+| 处理进度 | 当前处理状态 |
+| 户名 | 收款账户名称 |
+| 开户行 | 收款银行信息 |
+| 银行账号 | 收款账号 |
+| 联系电话 | 经办人联系方式 |
+
+## 积分详情
+
+### 查询功能
+<CardGroup>
+  <Card title="基本查询" icon="magnifying-glass">
+    - 支持按时间范围筛选
+    - 可查看指定月份的积分明细
+  </Card>
+  
+  <Card title="高级筛选" icon="filter">
+    - 按保险公司筛选
+    - 按产品类型筛选
+    - 按投保人/被保险人筛选
+  </Card>
+</CardGroup>
+
+### 明细字段说明
+| 字段 | 说明 |
+|------|------|
+| 订单号 | 保单订单编号 |
+| 保单号 | 保险公司出具的保单号 |
+| 产品名称 | 投保的保险产品 |
+| 投/被保险人 | 投保人或被保险人信息 |
+| 保费金额 | 实收保费 |
+| 创建时间 | 订单创建时间 |
+| 完成时间 | 订单完成时间 |
+| 下单账号 | 订单创建人 |
+| 积分比例 | 该笔订单的积分计算比例 |
+| 获得积分 | 该笔订单获得的积分 |
+| 订单状态 | 当前保单状态 |
+| 结算状态 | 积分结算状态 |
+
+<Note>
+积分明细支持导出Excel，方便您进行数据统计和核对。
+</Note>
+
+### 积分计算规则
+<AccordionGroup>
+  <Accordion title="基础规则">
+    - 积分根据实收保费和约定比例计算
+    - 不同产品可能有不同的积分比例
+    - 积分计算精确到小数点后2位
+  </Accordion>
+  
+  <Accordion title="特殊情况">
+    - 保单退保会扣减对应积分
+    - 保单批改可能影响积分计算
+    - 部分促销产品可能有额外积分奖励
+  </Accordion>
+</AccordionGroup>
+
+### 状态说明
+- 申请中：积分兑换申请已提交，等待处理
+- 已完成：积分兑换已处理完成
+- 已驳回：积分兑换申请未通过，请查看驳回原因
+
+### 所需材料
+<CardGroup>
+  <Card title="开票信息" icon="file-invoice">
+    如需开具发票，请准备：
+    - 单位名称
+    - 纳税人识别号
+    - 地址电话
+    - 开户行及账号
+  </Card>
+  
+  <Card title="资质证明" icon="id-card">
+    可能需要提供：
+    - 营业执照
+    - 一般纳税人资质证明
+  </Card>
+</CardGroup>
+
+<Tip>
+建议在申请前准备好所需材料，以免影响审核进度。
+</Tip>
