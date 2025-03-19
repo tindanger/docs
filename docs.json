@@ -117,6 +117,12 @@
         "tab": "API文档",
         "groups": [
           {
+            "group": "开始使用",
+            "pages": [
+              "api/index"
+            ]
+          },
+          {
             "group": "产品信息",
             "openapi": {
               "source": "/api/products.yaml",

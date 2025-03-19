@@ -1,40 +1,47 @@
-# Mintlify Starter Kit
+# 聚千保平台文档中心
 
-Click on `Use this template` to copy the Mintlify starter kit. The starter kit contains examples including
+本仓库包含聚千保平台的所有文档，包括：
 
-* Guide pages
+* 用户指南
+* 产品文档
+* API 文档
+* 系统功能说明
+* 条款与协议
 
-* Navigation
+### 本地开发
 
-* Customizations
+1. 安装 Mintlify CLI：
 
-* API Reference pages
-
-* Use of popular components
-
-### Development
-
-Install the [Mintlify CLI](https://www.npmjs.com/package/mintlify) to preview the documentation changes locally. To install, use the following command
-
-```
+```bash
 npm i -g mintlify
 ```
 
-Run the following command at the root of your documentation (where docs.json is)
+2. 在文档根目录（docs.json 所在目录）运行：
 
-```
+```bash
 mintlify dev
 ```
 
-### Publishing Changes
+3. 在浏览器打开 http://localhost:3000 预览文档
 
-Install our Github App to auto propagate changes from your repo to your deployment. Changes will be deployed to production automatically after pushing to the default branch. Find the link to install on your dashboard.
+### 文档结构
 
-#### Troubleshooting
+```
+docs/
+├── UserGuide/          # 用户指南
+├── ProductDocumentation/   # 产品文档
+├── SystemFeatures/     # 系统功能
+├── api/               # API文档
+├── Terms/             # 条款协议
+└── FAQ/               # 常见问题
+```
 
-├── docs/
-│   └── UserGuide/          <—— 当前文件夹
-│       ├── quick-start.mdx  <—— 当前文件
-│   └── Terms/          <—— 目标文件夹
-│       ├── Enterprise_Certification_User_Agreement_JQB.mdx
-│       └── ...
+### 注意事项
+
+1. 所有文档必须使用 UTF-8 编码
+2. 图片请放在 public/images 目录下
+3. API 示例代码请放在 api/examples 目录下
+4. 产品数据模型请放在 api/schemas 目录下
+
+
+需要我进一步调整吗？
