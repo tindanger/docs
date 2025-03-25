@@ -316,7 +316,7 @@ def flatten_json_levels(data, parent_levels=None, print_count=0, all_data=None):
         current_levels = parent_levels + [current]
         
         # 只打印前5条数据
-        if print_count < 5:
+        if print_count ＜ 5:
             print(f"\n当前处理节点: {current}")
             print(f"当前层级: {level}")
             print(f"完整路径: {current_levels}")
@@ -1078,7 +1078,7 @@ def calculate_nonlinear_surcharge(score, P=1000, K=1.0):
     """
     if score >= 100:
         return 0.0
-    elif score <= 0:
+    elif score ＜= 0:
         return P * K
     
     # 使用指数衰减公式计算加费率
@@ -1088,7 +1088,7 @@ def calculate_nonlinear_surcharge(score, P=1000, K=1.0):
 def build_condition_tree(data_lines):
     for line in data_lines:
         parts = line.strip().split('\t')
-        if len(parts) < 10:
+        if len(parts) ＜ 10:
             continue
         
         # 解析省份、城市、门类、大类、中类
@@ -1196,5 +1196,204 @@ AD --> AE[下一周期生效]
 1. **赔付率计算**：采用滚动12个月数据窗口
 2. **数据归一化**：人均赔款按`X_norm = ln(X+1)/ln(X_max+1)`处理
 3. **时间衰减**：历史数据权重每季度下降5%
+
+### 5. K值机器学习调参机制设计
+
+#### 核心逻辑架构
+```mermaid
+graph TD
+A[历史赔付数据] --> B(特征工程)
+C[评分时序数据] --> B
+B --> D{神经网络模型}
+D --> E[K值预测]
+E --> F[加费策略执行]
+F --> G[新周期赔付数据]
+G --> H[在线学习]
+H --> D
+```
+
+#### 关键算法设计
+1. **特征构造**：
+   - 滚动12期评分变化率
+   - 最近3期赔付率标准差
+   - 当前K值水平
+   - 行业风险波动系数
+   - 季节调整因子
+
+2. **网络结构**（PyTorch实现）：
+```python
+class KAdjuster(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.lstm = nn.LSTM(input_size=5, hidden_size=32, batch_first=True)
+        self.fc = nn.Sequential(
+            nn.Linear(32, 16),
+            nn.ReLU(),
+            nn.Linear(16, 1),
+            nn.Sigmoid()
+        )
+    
+    def forward(self, x):
+        out, _ = self.lstm(x)
+        out = self.fc(out[:, -1, :])
+        return out * 1.5 + 0.5  # 映射到[0.5,2.0]
+```
+
+3. **动态调参策略**：
+```math
+\Delta K = \alpha \times \frac{S_{t-1} - S_t}{S_{t-1}} + \beta \times \nabla L
+```
+其中：
+- α：评分变化敏感系数（初始值0.2）
+- β：赔付梯度调节系数（初始值0.05）
+- ∇L：赔付率变化二阶导数
+
+#### 训练代码示例
+```python
+import torch
+import torch.nn as nn
+from torch.utils.data import Dataset, DataLoader
+
+class RiskDataset(Dataset):
+    def __init__(self, seq_length=12):
+        self.data = self._load_historical_data()
+        self.seq_len = seq_length
+    
+    def __len__(self):
+        return len(self.data) - self.seq_len
+    
+    def __getitem__(self, idx):
+        seq = self.data[idx:idx+self.seq_len]
+        features = torch.tensor([[
+            item['K'],
+            item['score'],
+            item['loss_ratio'],
+            item['season'],
+            item['volatility']
+        ] for item in seq[:-1]], dtype=torch.float32)
+        target = torch.tensor([[seq[-1]['K']]], dtype=torch.float32)
+        return features, target
+
+def train():
+    model = KAdjuster()
+    criterion = nn.HuberLoss()
+    optimizer = torch.optim.AdamW(model.parameters(), lr=1e-3)
+    
+    dataset = RiskDataset()
+    loader = DataLoader(dataset, batch_size=32, shuffle=True)
+    
+    for epoch in range(100):
+        for X, y in loader:
+            pred = model(X)
+            loss = criterion(pred, y)
+            
+            optimizer.zero_grad()
+            loss.backward()
+            nn.utils.clip_grad_norm_(model.parameters(), 1.0)
+            optimizer.step()
+            
+        print(f"Epoch {epoch} | Loss: {loss.item():.4f}")
+```
+
+#### 在线预测流程
+```python
+class KController:
+    def __init__(self, model_path):
+        self.model = torch.jit.load(model_path)
+        self.buffer = deque(maxlen=12)
+        
+    def update_features(self, new_data):
+        """更新实时特征"""
+        self.buffer.append({
+            'K': new_data['current_K'],
+            'score': new_data['score'],
+            'loss_ratio': new_data['loss_ratio'],
+            'season': new_data['season'],
+            'volatility': self._calc_volatility()
+        })
+    
+    def predict_K(self):
+        """生成K值预测"""
+        if len(self.buffer) ＜ 12:
+            return 1.0  # 默认初始值
+        
+        seq_tensor = torch.tensor([[
+            item['K'],
+            item['score'],
+            item['loss_ratio'],
+            item['season'],
+            item['volatility']
+        ] for item in self.buffer], dtype=torch.float32).unsqueeze(0)
+        
+        with torch.no_grad():
+            new_K = self.model(seq_tensor).item()
+        
+        # 实施平滑过渡
+        current_K = self.buffer[-1]['K']
+        return 0.8*current_K + 0.2*new_K
+```
+
+#### 调控效果验证
+```python
+def validate_adjustment():
+    simulator = UnderwritingSimulator()
+    controller = KController("trained_model.pt")
+    
+    historical_K = []
+    loss_ratios = []
+    
+    for cycle in range(24):  # 模拟两年周期
+        # 获取当前风险数据
+        risk_data = simulator.get_current_state()
+        
+        # 更新控制器特征
+        controller.update_features({
+            'current_K': risk_data['K'],
+            'score': risk_data['score'],
+            'loss_ratio': risk_data['loss_ratio'],
+            'season': risk_data['season']
+        })
+        
+        # 预测新K值
+        new_K = controller.predict_K()
+        simulator.apply_new_K(new_K)
+        
+        # 记录效果
+        historical_K.append(new_K)
+        loss_ratios.append(simulator.loss_ratio)
+    
+    # 可视化调控效果
+    plt.figure(figsize=(12,6))
+    plt.subplot(211)
+    plt.plot(historical_K, label='Dynamic K')
+    plt.ylim(0.5, 2.0)
+    plt.subplot(212)
+    plt.plot(loss_ratios, label='Loss Ratio')
+    plt.show()
+```
+
+### 系统集成方案
+```mermaid
+graph LR
+A[核保系统] --> B{调参触发器}
+B -->|定时任务| C[特征计算]
+C --> D[模型预测]
+D --> E[K值更新]
+E --> F[加费策略生效]
+F --> G[新业务数据采集]
+G --> H[在线学习模块]
+H --> D
+```
+
+#### 性能监控指标
+| 指标名称         | 健康阈值 | 告警机制             |
+|------------------|----------|----------------------|
+| 预测响应延迟     | ＜500ms   | 连续3次超时触发告警  |
+| 梯度爆炸概率     | ＜5%      | 单次超过10%立即告警  |
+| 数值稳定性       | ±3σ      | 超限值自动回滚       |
+| 在线学习收敛性   | 损失下降>15%/周期 | 停滞超3周期触发人工检查 |
+
+通过将动态调参机制与核心业务系统深度集成，实现费率策略的智能进化。实际生产环境中建议采用渐进式部署，初期设置30%流量进行AB测试，待验证效果后逐步扩大应用范围。
+
 
 本方案通过结构化风险识别与智能算法调节的闭环设计，实现从经验判断向数据驱动的转型升级。所有参数均需通过季度回溯测试进行校准，确保系统稳健运行。
